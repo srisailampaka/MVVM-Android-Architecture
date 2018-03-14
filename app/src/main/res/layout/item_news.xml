@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/tools"
+    app:ignore="NamespaceTypo">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="example.com.newapiexample.viewModel.NewsViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:id="@+id/container_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="@{viewModel.onClickPost}"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/touchable_background_white"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/text_view_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:onClick="@{viewModel.onClickPost}"
+                    android:text="@{viewModel.getArticleTitle}"
+                    android:textColor="@color/black_87pc"
+                    android:textSize="@dimen/text_large_title" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text_view_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@{viewModel.getArticleDescription}"
+                        android:textColor="@color/hn_orange"
+                        android:textSize="@dimen/text_body" />
+
+
+                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/image_view_picture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:imageUrl="@{viewModel.imageURL}"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/text_post_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.getArticleAuthor}"
+                    android:textColor="@color/black_87pc"
+                    android:textSize="@dimen/text_body" />
+
+                <TextView
+                    android:id="@+id/text_view_published_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="@{viewModel.getPublishedDate}"
+                    android:textColor="@color/black_87pc"
+                    android:textSize="@dimen/text_body" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_view_post"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/touchable_background_white"
+                    android:clickable="true"
+                    android:onClick="@{viewModel.onClickPost}"
+                    android:padding="16dp"
+                    android:text="@string/view_button"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small_body"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_watch_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/touchable_background_white"
+                    android:clickable="true"
+                    android:onClick="@{viewModel.watchNews}"
+                    android:padding="16dp"
+                    android:text="@string/watch_video"
+                    app:isVisible="@{viewModel.setVisibility}"
+                    android:textColor="@color/hn_orange"
+                    android:textSize="@dimen/text_small_body" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>
