@@ -3,7 +3,7 @@ This the LatestNews Android Project developed using MVVM Architecture<br>
 which show the different category news like Business, Entertainment,Health,Science,Sports,Technology in tabular format using the TabLayout.<br>  
 
 This application uses views likeCardView , ViewPager,RecyclerView ,VideoView .<br/>
-Application runs on android studio 3.0+ 
+Application runs on android studio 3.0+ <br/
 #Technology used<br/>
 Clean MVVM architecture<br/>
 <b>Dagger 2:</b>dependency injector for Android <br/> 
